@@ -1,74 +1,60 @@
--- 321CB Ana Elena Diana --
--- Tema 1 PA --
+# Tema 1 – Programare Avansată (PA)
 
--- problema 1 - FERIBOT --
-Gasesc costul minim al unui feribot cu un algoritm de -- cautare binara --.
-Cel mai mic cost 'maxim' pe care il poate avea un feribot = greutatea
-celei mai mari masini (maximul din vectorul G, 'sumMin')
-Cel mai mare cost 'maxim' este suma tuturor greutatilor masinilor, 'sumMax'.
-Calculez 'sumMid' ca fiind mijlocul intrevalului [sumMin, sumMax] si verific
-daca pot avea K feriboturi incarcate cu o greutate de maxim sumMid. Daca am
-prea putine feriboturi, am nevoie de un sumMid mai mic (caut in stanga);
-daca am prea multe, caut in dreapta.
-Complexitate - gasire cost minim: nlogn
+Acest proiect conține rezolvările pentru patru probleme algoritmice: **FERIBOT, NOSTORY, SUSHI, SEMNALE**.  
+Am folosit tehnici precum **căutare binară, sortare, programare dinamică și optimizare greedy**.  
 
--- problema 2 - NOSTORY --
--- Task 1 --
-Pentru a obtine scor maxim trebuie ca cele mai mari N numere din cele 2 liste
-impreunate sa fie in perechi diferite / sa fie intr-o singura lista.
-Sortez cei 2 vectori cu un algoritm de -- merge sort --.
-Deoarece i-am sortat crescator, ii parcurg de la final spre inceput si aplic
-un fel de interclasare, doar ca adun elementele direct in variabila 'res'.
-Daca am adunat deja n numere, adica 'ires' ajunge din n - 1 in -1, ma opresc.
-Complexitate - 2 sortari: 2 * nlogn
-             - interclasare: n
-             - total: nlogn
--- Task 2 --
-Incerc sa interschimb cele mai mari K valori care sunt minime in perechea lor
-cu cele mai mici K valori care sunt maxime in perechea lor.
-Am creat 2 vectori de perechi 'aux_min' si 'aux_max'; primul este sortat
-crescator dupa elementul minim din pereche, al doilea este sortat descrescator
-dupa elementul maxim din pereche. Daca minimul din primul vector este mai mare
-decat maximul din al 2-lea, aduc elementul din primul vector in al 2 lea.
-Rezultatul este suma maximelor din vectorul aux_max.
-Complexitate - 2 sortari: 2 * nlogn
-             - swap urile: k
-             - calcul rezultat: n
-             - total: nlogn
+---
 
--- problema 3 - SUSHI --
--- Task 1 --
-Am creat o structura in care calculez suma notelor pentru fiecare sushi.
-Folosesc o matrice (m + 1) * (n * x) care reprezinta suma notelor i
-cu costul j. Daca nu pot adauga platoul i (j < i.price), cea mai buna
-solutie ramane solutia cu primele i - 1 platouri. Daca pot sa il
-adaug, cea mai buna solutie devine maximul dintre solutia anterioara
-si solutia cu i - 1 obiecte care costa j - price, la care as adauga
-nota platoului.
-Complexitate: - (m + 1) * (n * x) ~ O(ceva^2)
--- Task 2 --
-Daca am voie sa pun 2 platouri de acelasi fel, duplic platourile,
-fac un vector mare cu toate si aplic acelasi algoritm.
-Complexitate: - duplicare: n
-              - task2 = task1: O(ceva^2)
-              - total: O(ceva^2)
--- Task 3 --
-Folosesc o matrice 3D unde prima dimensiune, i, reprezinta suma notelor,
-a 2-a, j, reprezinta pretul, iar a 3-a, k, reprezinta numarul de platouri
-comandate.
-Complexitate: - duplicare: n
-              - task3: O(ceva^2)
-              - total: O(ceva^2)
+## Problema 1 – FERIBOT
+Determinarea costului minim pentru un feribot folosind **căutare binară**.  
 
--- problema 4 - SEMNALE --
--- Task 1 --
-Folosesc o matrice cu x linii si y coloane, unde elementul (i,j) reprezinta
-numarul de semnale formate cu i biti de 0 si j biti de 1. Bitul 0 il pot
-adauga tuturor semnalelor anterioare. Bitul 1 il adaug doar semnalelor
-care au ultimul bit 0 (ca si cand as adauga 01).
-Complexitate: x * y ~ O(ceva^2)
--- Task 2 --
-Asemanator, pot adauga 0 tuturor semnalelor anterioare. Pot adauga 1 bit de 1
-semnalelor care se termina in 0. In plus, pot adauga si 11 semnalelor care
-se termina in 0.
-Complexitate: x * y ~ O(ceva^2)
+- Costul minim posibil = greutatea celei mai mari mașini (`sumMin`)  
+- Costul maxim posibil = suma tuturor greutăților (`sumMax`)  
+- Se caută binar în intervalul `[sumMin, sumMax]` pentru a găsi valoarea minimă posibilă a costului maxim, verificând dacă se pot încărca toate mașinile în `K` feriboturi.  
+
+**Complexitate:** `O(n log n)`  
+
+---
+
+## Problema 2 – NOSTORY
+### Task 1
+- Se sortează cele două liste folosind **merge sort**.  
+- Se selectează cele mai mari `N` numere din listele reunite, printr-o interclasare inversă.  
+
+**Complexitate:** `O(n log n)`  
+
+### Task 2
+- Se construiesc 2 vectori de perechi:  
+  - `aux_min` (sortat crescător după minimul perechii)  
+  - `aux_max` (sortat descrescător după maximul perechii)  
+- Se încearcă interschimbarea a cel mult `K` valori pentru maximizarea scorului.  
+
+**Complexitate:** `O(n log n)`  
+
+---
+
+## Problema 3 – SUSHI
+### Task 1
+- Se folosește **programare dinamică** cu matrice `(m+1) x (n*x)` unde `i` = numărul de platouri, `j` = cost.  
+- Se verifică pentru fiecare platou dacă se include sau nu în soluție.  
+
+### Task 2
+- Platourile pot fi duplicate → vector extins → se aplică același algoritm.  
+
+### Task 3
+- Matrice 3D:  
+  - dimensiunea `i` = suma notelor,  
+  - dimensiunea `j` = prețul,  
+  - dimensiunea `k` = numărul de platouri.  
+
+**Complexitate:** aproximativ `O(n^2)`  
+
+---
+
+## Problema 4 – SEMNALE
+### Task 1
+- Matrice `x` linii × `y` coloane, unde `(i,j)` = nr. semnale cu `i` zerouri și `j` unuuri.  
+- Se adaugă `0` tuturor semnalelor anterioare, `1` doar semnalelor care se termină în `0`.  
+
+### Task 2
+- Similar cu Task
