@@ -3,8 +3,6 @@
 Acest proiect conține rezolvările pentru patru probleme algoritmice: **FERIBOT, NOSTORY, SUSHI, SEMNALE**.  
 Am folosit tehnici precum **căutare binară, sortare, programare dinamică și optimizare greedy**.  
 
----
-
 ## Problema 1 – FERIBOT
 Determinarea costului minim pentru un feribot folosind **căutare binară**.  
 
@@ -13,8 +11,6 @@ Determinarea costului minim pentru un feribot folosind **căutare binară**.
 - Se caută binar în intervalul `[sumMin, sumMax]` pentru a găsi valoarea minimă posibilă a costului maxim, verificând dacă se pot încărca toate mașinile în `K` feriboturi.  
 
 **Complexitate:** `O(n log n)`  
-
----
 
 ## Problema 2 – NOSTORY
 ### Task 1
@@ -31,8 +27,6 @@ Determinarea costului minim pentru un feribot folosind **căutare binară**.
 
 **Complexitate:** `O(n log n)`  
 
----
-
 ## Problema 3 – SUSHI
 ### Task 1
 - Se folosește **programare dinamică** cu matrice `(m+1) x (n*x)` unde `i` = numărul de platouri, `j` = cost.  
@@ -48,8 +42,6 @@ Determinarea costului minim pentru un feribot folosind **căutare binară**.
   - dimensiunea `k` = numărul de platouri.  
 
 **Complexitate:** aproximativ `O(n^2)`  
-
----
 
 ## Problema 4 – SEMNALE
 ### Task 1
