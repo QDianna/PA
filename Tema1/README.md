@@ -49,4 +49,6 @@ Determinarea costului minim pentru un feribot folosind **căutare binară**.
 - Se adaugă `0` tuturor semnalelor anterioare, `1` doar semnalelor care se termină în `0`.  
 
 ### Task 2
-- Similar cu Task
+- Similar cu Task 1, dar se poate adăuga și `11` la semnalele care se termină în `0`.  
+
+**Complexitate:** `O(x*y)`  
